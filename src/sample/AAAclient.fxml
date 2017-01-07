@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AAAclientController">
+   <children>
+      <Label layoutX="84.0" layoutY="14.0" prefHeight="43.0" prefWidth="192.0" text="Log to AAA Server" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="77.0" prefHeight="34.0" prefWidth="92.0" text="User Name:" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="77.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="123.0" prefHeight="34.0" prefWidth="98.0" text="Shared Secret:" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="123.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="167.0" prefHeight="34.0" prefWidth="92.0" text="Password:" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="167.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="169.0" layoutY="77.0" prefHeight="34.0" prefWidth="159.0" promptText="write user name" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="77.0" />
+      <TextField fx:id="secretTextField" layoutX="169.0" layoutY="123.0" prefHeight="34.0" prefWidth="159.0" promptText="write secret" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="123.0" />
+      <TextField fx:id="passwordTextField" layoutX="169.0" layoutY="167.0" prefHeight="34.0" prefWidth="159.0" promptText="*************" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="167.0" />
+      <Button fx:id="connectButton" layoutX="187.0" layoutY="244.0" mnemonicParsing="false" onAction="#connectionAction" prefHeight="43.0" prefWidth="115.0" text="Try To Connect" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="244.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label fx:id="resultLabel" layoutX="23.0" layoutY="209.0" prefHeight="78.0" prefWidth="123.0" textAlignment="CENTER" textFill="#cd2020" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="209.0" />
+      <Button fx:id="printLogsButton" layoutX="116.0" layoutY="426.0" mnemonicParsing="false" onAction="#printAction" prefHeight="25.0" prefWidth="107.0" text="Print Logs" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="136.0" />
+      <TextArea fx:id="logsTextArea" editable="false" layoutX="12.0" layoutY="309.0" prefHeight="142.0" prefWidth="335.0" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+      <CheckBox fx:id="defaultCheck" layoutX="197.0" layoutY="208.0" mnemonicParsing="false" onAction="#checkAction" prefHeight="25.0" prefWidth="131.0" text="Set Defoult Settings" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="208.0" />
+   </children>
+</AnchorPane>
