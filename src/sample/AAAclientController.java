@@ -38,8 +38,13 @@ public class AAAclientController {
             ok = false;
         }
         if (!started && ok) {
-            ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
             started = true;
+            ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
+            passwordTextField.setText("");
+            passwordTextField.setText("");
+            passwordTextField.setText("");
+            ok = false;
+            started = false;
             printLogsButton.setVisible(true);
         }
 
