@@ -41,6 +41,10 @@ public class AAAclientController {
             info += "Please enter the password \n";
             ok = false;
         }
+        if (secretTextField.getText().length() != 16) {
+            info += "Secret must be 16 characters length \n";
+            ok = false;
+        }
         if (!started && ok) {
             started = true;
             ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
