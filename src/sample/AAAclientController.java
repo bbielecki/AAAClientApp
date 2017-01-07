@@ -33,13 +33,22 @@ public class AAAclientController {
             info += "Please enter the secret \n";
             ok = false;
         }
+        if (secretTextField.getText().length() != 16) {
+            info += "Secret must be 16 characters length \n";
+            ok = false;
+        }
         if (passwordTextField.getText().equals("")) {
             info += "Please enter the password \n";
             ok = false;
         }
         if (!started && ok) {
-            ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
             started = true;
+            ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
+            passwordTextField.setText("");
+            passwordTextField.setText("");
+            passwordTextField.setText("");
+            ok = false;
+            started = false;
             printLogsButton.setVisible(true);
         }
 

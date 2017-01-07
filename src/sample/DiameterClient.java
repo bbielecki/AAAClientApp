@@ -228,11 +228,12 @@ public class DiameterClient {
                     PrintedStrings.stringsToPrint.add(log);
                     avp =  reply.find(ProtocolConstants.DI_FRAMED_IP_ADDRESS);
                     if (avp != null) {
-                        AVP_OctetString multicastAdress = new AVP_OctetString(avp );
-                        if (multicastAdress != null) {
-                            clusterAddress = new String(multicastAdress.queryValue());
+                        AVP_OctetString multicastAddress = new AVP_OctetString(avp );
+                        if (multicastAddress != null) {
+                            clusterAddress = new String(multicastAddress.queryValue());
                             System.out.println(log = "adres IP klastra: " + clusterAddress);
                             PrintedStrings.stringsToPrint.add(log);
+                            //MulticastClient(clusterAddress, secret.getBytes("ASCII"));
                         }
                     }
 
