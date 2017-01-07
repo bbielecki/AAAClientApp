@@ -202,11 +202,11 @@ public class DiameterClient {
                         String chapChallenge = chapChallengeBytes.toString();
                         //System.out.println("chapChallenge: " + chapChallenge );
                         printBytesAsString(chapChallengeBytes, "odebrane zadanie ");
-                        log = "odebrane zdanie " + chapChallengeBytes.toString();
+                        log = getBytesAsString(chapChallengeBytes, "odebrane zadanie ");
                         PrintedStrings.stringsToPrint.add(log);
                         byte[] rozwiazanie = caluculateMD5( idBytes, secret.getBytes("ASCII"), chapChallengeBytes);
                         printBytesAsString(rozwiazanie, "obliczone rozwiazanie ");
-                        log = "obliczone rozwiazanie " + rozwiazanie;
+                        log = getBytesAsString(rozwiazanie, "obliczone rozwiazanie ");
                         PrintedStrings.stringsToPrint.add(log);
                         chapAuth.setAVPs(elements[0], elements[1],
                                 new AVP_OctetString(ProtocolConstants.DI_CHAP_RESPONSE,rozwiazanie),
@@ -328,7 +328,7 @@ public class DiameterClient {
         byte[] word = concatenateBytes(
                 concatenateBytes(id,secret), chellange);
         printBytesAsString(word, "licze md5 dla ");
-        log = "licze MD5 dla " + word;
+        log = getBytesAsString(word, "licze md5 dla ");
         PrintedStrings.stringsToPrint.add(log);
         try {
             md = java.security.MessageDigest.getInstance("MD5");
@@ -348,6 +348,15 @@ public class DiameterClient {
 
         }
         System.out.println(text + String.valueOf(charChallange2));
+    }
+
+    String getBytesAsString(byte[] bytes, String text)  {
+        char[] charChallange2 = new char[bytes.length];
+        for( int i = 0; i < bytes.length; i++) {
+            charChallange2[i] = (char) bytes[i];
+        }
+
+        return text + String.valueOf(charChallange2);
     }
 
     byte[] concatenateBytes(byte[] a, byte[] b) {

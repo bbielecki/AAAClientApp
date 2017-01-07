@@ -80,7 +80,7 @@ public class AAAclientController {
     public void checkAction(){
         if(defaultCheck.isSelected()){
             nameTextField.setText("user");
-            secretTextField.setText("assdasfffsaf");
+            secretTextField.setText("czescczescczesc1");
             passwordTextField.setText("aaa");
         }
         else {
