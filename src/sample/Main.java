@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("AAAclient.fxml"));
         primaryStage.setTitle("AAA Client");
-        primaryStage.setScene(new Scene(root, 359, 465));
+        primaryStage.setScene(new Scene(root, 359, 510));
         primaryStage.show();
     }
 

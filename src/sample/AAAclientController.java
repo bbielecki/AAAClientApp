@@ -41,16 +41,13 @@ public class AAAclientController {
             info += "Please enter the password \n";
             ok = false;
         }
-        if (secretTextField.getText().length() != 16) {
-            info += "Secret must be 16 characters length \n";
-            ok = false;
-        }
         if (!started && ok) {
             started = true;
             ClientStarter.start(nameTextField.getText(), passwordTextField.getText(), secretTextField.getText());
             passwordTextField.setText("");
             passwordTextField.setText("");
             passwordTextField.setText("");
+            logsTextArea.clear();
             ok = false;
             started = false;
             printLogsButton.setVisible(true);
@@ -69,6 +66,7 @@ public class AAAclientController {
             for (String str : PrintedStrings.stringsToPrint) {
                 text += str + "\n";
             }
+            PrintedStrings.stringsToPrint.clear();
         }
         else {
             text = "Bład połączenia....";
