@@ -67,12 +67,11 @@ public class AAAclientController {
                 text += str + "\n";
             }
             PrintedStrings.stringsToPrint.clear();
+            logsTextArea.setText(text);
         }
-        else {
-            text = "Bład połączenia....";
+        if(PrintedStrings.stringsToPrint.isEmpty() && logsTextArea.getText().equals("")){
+            logsTextArea.setText("Bład połączenia....");
         }
-
-        logsTextArea.setText(text);
     }
 
     public void checkAction(){
