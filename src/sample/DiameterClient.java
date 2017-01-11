@@ -232,6 +232,7 @@ public class DiameterClient {
                         if (multicastAddress != null) {
                             clusterAddress = new String(multicastAddress.queryValue());
                             System.out.println(log = "adres IP klastra: " + clusterAddress);
+                            PrintedStrings.address = clusterAddress;
                             PrintedStrings.stringsToPrint.add(log);
                              //MulticastClient(clusterAddress, secret.getBytes("ASCII"));
                         }

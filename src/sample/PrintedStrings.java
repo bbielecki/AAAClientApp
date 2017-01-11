@@ -7,6 +7,8 @@ import java.util.ArrayList;
  */
 public class PrintedStrings {
     public ArrayList<String> stringsToPrint;
+    public String address;
+    public String key;
 
     public PrintedStrings(){
         stringsToPrint=new ArrayList<>();

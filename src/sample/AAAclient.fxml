@@ -41,8 +41,9 @@
          </effect>
       </Button>
       <Label fx:id="resultLabel" layoutX="23.0" layoutY="209.0" prefHeight="96.0" prefWidth="143.0" textAlignment="CENTER" textFill="#cd2020" textOverrun="CENTER_ELLIPSIS" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="209.0" />
-      <Button fx:id="printLogsButton" layoutX="116.0" layoutY="426.0" mnemonicParsing="false" onAction="#printAction" prefHeight="25.0" prefWidth="107.0" text="Print Logs" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="136.0" />
+      <Button fx:id="printLogsButton" layoutX="23.0" layoutY="472.0" mnemonicParsing="false" onAction="#printAction" prefHeight="25.0" prefWidth="107.0" text="Print Logs" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="229.0" />
       <TextArea fx:id="logsTextArea" editable="false" layoutX="12.0" layoutY="314.0" prefHeight="142.0" prefWidth="335.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
       <CheckBox fx:id="defaultCheck" layoutX="197.0" layoutY="208.0" mnemonicParsing="false" onAction="#checkAction" prefHeight="25.0" prefWidth="131.0" text="Set Default Settings" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="208.0" />
+      <Button fx:id="infoExchangeButton" layoutX="169.0" layoutY="467.0" mnemonicParsing="false" onAction="#startExchangeAction" prefHeight="34.0" prefWidth="170.0" text="Start Information Exchange" visible="false" />
    </children>
 </AnchorPane>
