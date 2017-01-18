@@ -5,11 +5,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MulticastClientController">
    <children>
-      <TextArea fx:id="logTextArea" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="257.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <TextArea fx:id="commonTextArea" layoutX="293.0" layoutY="14.0" prefHeight="200.0" prefWidth="293.0" AnchorPane.bottomAnchor="186.0" AnchorPane.leftAnchor="293.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <TextArea fx:id="incomingTextArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="180.0" prefWidth="257.0" AnchorPane.bottomAnchor="194.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <TextArea fx:id="commonTextArea" editable="false" layoutX="293.0" layoutY="14.0" prefHeight="200.0" prefWidth="293.0" AnchorPane.bottomAnchor="186.0" AnchorPane.leftAnchor="293.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Separator layoutX="281.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="6.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="281.0" AnchorPane.topAnchor="-1.0" />
       <Button fx:id="sendButton" layoutX="293.0" layoutY="226.0" mnemonicParsing="false" onAction="#send" prefHeight="39.0" prefWidth="97.0" text="Send Content" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="293.0">
          <font>
@@ -22,5 +21,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <TextArea fx:id="sendingTextArea" layoutX="14.0" layoutY="213.0" prefHeight="180.0" prefWidth="257.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="213.0" />
    </children>
 </AnchorPane>

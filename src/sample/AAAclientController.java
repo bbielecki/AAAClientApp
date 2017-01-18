@@ -92,14 +92,20 @@ public class AAAclientController {
         String text = "";
         logsTextArea.setVisible(true);
         logsTextArea.setEditable(false);
+        int i = 1;
 
         if(!PrintedStrings.stringsToPrint.isEmpty()){
             for (String str : PrintedStrings.stringsToPrint) {
-                text += str + "\n";
+                text += i + " " + str + "\n";
+                i++;
+                if(i>7) {
+                    text += "-------------------------------------------" + "\n";
+                    i = 1;
+                }
             }
             PrintedStrings.stringsToPrint.clear();
             logsTextArea.setText(text);
-
+            i = 1;
         }
         if(PrintedStrings.stringsToPrint.isEmpty() && logsTextArea.getText().equals("")){
             logsTextArea.setText("Bład połączenia....");

@@ -27,7 +27,8 @@ public class MulticastClientController implements Initializable{
     @FXML Button sendButton;
 
     @FXML TextArea commonTextArea;
-    @FXML TextArea logTextArea;
+    @FXML TextArea incomingTextArea;
+    @FXML TextArea sendingTextArea;
 
     @FXML TextField sharedMessageText;
 
@@ -37,6 +38,10 @@ public class MulticastClientController implements Initializable{
     private Cipher cipher;
     private byte[] encodedKey;
     private  InetAddress group;
+    String incomingInformations = "";
+    String sendingInformations = "";
+    String newLine = "\n";
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,13 +52,16 @@ public class MulticastClientController implements Initializable{
         try {
             st = new Storage();
             mrec = new MulticastSocket(3456);
+            incomingInformations = "Multicast socket: 3456 \n";
             group = InetAddress.getByName(groupIP);
+            incomingInformations += group +"\n";
             mrec.joinGroup(group);
             sendRequestForData(group);
 
             encodedKey = keyString.getBytes("ASCII");
             originalKey = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
             cipher = Cipher.getInstance("AES");
+            incomingInformations += cipher +"\n";
 
             Runnable listener = new Runnable() {
                 @Override
@@ -63,18 +71,23 @@ public class MulticastClientController implements Initializable{
                             byte[] messageBuffer = new byte[1000];
                             DatagramPacket messagePack = new DatagramPacket(messageBuffer, messageBuffer.length);
                             mrec.receive(messagePack);
+                            incomingInformations += "Receiver message : " + messagePack +newLine;
+
                             String lol1 = new String(messagePack.getData(), 0, messagePack.getLength());
                             if (lol1.equals("Hello")) {
+                                incomingInformations += "Someone has joined the group" + newLine;
                                 DatagramPacket pack;
                                 cipher.init(Cipher.ENCRYPT_MODE, originalKey);
                                 if (!st.getStore().isEmpty()) {
                                     for (String s : st.getStore()) {
                                         String sEncrypted = "HelloRes " + AES.encrypt(s, cipher);
+                                        incomingInformations += "Encrypted message: " + sEncrypted + newLine;
                                         pack = new DatagramPacket(sEncrypted.getBytes(), sEncrypted.length(), group, 3456);
                                         mrec.send(pack);
                                     }
                                 }
                             } else if (lol1.contains("HelloRes ")) {
+                                sendingInformations += "Answering to new member" + newLine;
                                 cipher.init(Cipher.DECRYPT_MODE, originalKey);
                                 String splittedMessage = lol1.split("\\s+")[1];
                                 String decryptedMessage = AES.decrypt(splittedMessage, cipher);
@@ -90,6 +103,9 @@ public class MulticastClientController implements Initializable{
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
+
+                        incomingTextArea.setText(incomingInformations);
+                        sendingTextArea.setText(sendingInformations);
                     }
                 }
             };
@@ -111,9 +127,11 @@ public class MulticastClientController implements Initializable{
                 cipher.init(Cipher.ENCRYPT_MODE, originalKey);
                 message = AES.encrypt(message, cipher);
                 System.out.println("Zaszyfrowana wiadomość: " + message);
+                sendingInformations += "Zaszyfrowana wiadomość: " + message +newLine;
                 DatagramPacket pack = new DatagramPacket(message.getBytes(), message.length(), group, 3456);
                 mrec.send(pack);
                 System.out.println("Wysłałem pakiet!");
+                sendingInformations += "Wysłałem pakiet!" +newLine;
 
                 sharedMessageText.clear();
             }catch (Exception e){
@@ -132,6 +150,7 @@ public class MulticastClientController implements Initializable{
         try {
             String welcomeMessage = "Hello";
             System.out.println("Wysłalem hellooo");
+            sendingInformations += "Member reports to multicast group and sends message 'Hello' " + newLine;
             DatagramPacket pack = new DatagramPacket(welcomeMessage.getBytes(), welcomeMessage.length(), group, 3456);
             mrec.send(pack);
         } catch (IOException e) {
